@@ -1,0 +1,67 @@
+.display-4 {
+    text-align: center;
+    position: relative;
+    top:-40px;
+}
+
+.jumbotron {
+    background-color: darkslateblue;
+    color: white;
+    height: 100px;
+}
+
+.cityCard{
+height: 50px;
+}
+.cityName{
+    position: relative;
+    top: -8px;
+    opacity: 70%;
+}
+
+#forecastInfo{
+    height: 550px;
+}
+
+#currentForecast {
+height: 300px;
+background-color: white;
+margin-bottom: 30px;
+}
+
+#fiveDay {
+height: 300px;
+}
+.day {
+    height: 150px;
+    width: 150px;
+    position: relative;
+    left: 30px;
+    top: 20px;
+    background-color: lightblue;
+}
+.weekCards {
+    margin: 10px;
+}
+
+@media screen and (max-width: 768px) {
+
+.display-4 {
+    font-size: 36px;
+    top: -20px;
+}
+}
+@media screen and (max-width: 575px) {
+
+    .display-4 {
+        font-size: 30px;
+        top: 0px;
+    }
+    }
+@media screen and (max-width: 450px) {
+
+.display-4 {
+    font-size: 26px;
+    top: 0px;
+}
+}
