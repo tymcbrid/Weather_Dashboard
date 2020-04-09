@@ -13,11 +13,17 @@ var cityList5 = document.querySelector("#cityList5");
 var cityList6 = document.querySelector("#cityList6");
 var cityList7 = document.querySelector("#cityList7");
 var cityList8 = document.querySelector("#cityList8");
+var dayOneEl = document.querySelector("#dayOne");
+var dayTwoEl = document.querySelector("#dayTwo");
+var dayThreeEl = document.querySelector("#dayThree");
+var dayFourEl = document.querySelector("#dayFour");
+var dayFiveEl = document.querySelector("#dayFive");
+
 
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
     var city = $("#searchItem").val();
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=a89a05b4a0df6c1694d5f08466c85383"
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383"
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -26,7 +32,7 @@ $("#searchBtn").on("click", function(event) {
         var City = response.name;
         console.log(City);
         var Kelvin = (response.main.temp);
-        var Farenheit = Math.round(((Kelvin - 273.15) * 9/5 + 32)*10)/10;
+        var Farenheit = Math.round(((Kelvin - 273.15) * 9/5 + 32)*100)/100;
         var Humidity = (response.main.humidity);
         var Wind = (response.wind.speed);
         currentTemp.textContent = "Temperature: " + Farenheit + "°";
@@ -36,6 +42,39 @@ $("#searchBtn").on("click", function(event) {
         updateList(City);
     })
 })
+
+$(".cityCard").on("click", function(event){
+    event.preventDefault();
+    console.log(event);
+    var city = event.target.innerText;
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383"
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
+        var City = response.name;
+        console.log(City);
+        var Kelvin = (response.main.temp);
+        var Farenheit = Math.round(((Kelvin - 273.15) * 9/5 + 32)*100)/100;
+        var Humidity = (response.main.humidity);
+        var Wind = (response.wind.speed);
+        currentTemp.textContent = "Temperature: " + Farenheit + "°";
+        currentCity.textContent = City + " " + "(" + currentDate + ")";
+        currentHumidity.textContent = "Humidity: " + Humidity + "%";
+        currentWind.textContent = "Wind Speed: " + Wind + " MPH";
+    })
+    var queryURL2 = 'http://api.openweathermap.org/data/2.5/forecast?q='+ city + '&appid=79bb7dc0e8f07f6ebe01166410e6e392'
+    $.ajax({
+        url: queryURL2,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
+    })
+})
+
+
+
 
 function updateList(City){
 cityList8.textContent = cityList7.textContent;
@@ -51,7 +90,23 @@ cityList1.textContent = City
 
 function todaysDate(){
     var today = moment().format("MM/DD/YY");
+    var second = moment().add(1, 'day');
+    var third = moment().add(2, 'day');
+    var fourth = moment().add(3, 'day');
+    var fifth = moment().add(4, 'day');
+    var sixth = moment().add(5, 'day');
+    var secondDay = second.format("MM/DD/YY");
+    var thirdDay = third.format("MM/DD/YY");
+    var fourthDay = fourth.format("MM/DD/YY");
+    var fifthDay = fifth.format("MM/DD/YY");
+    var sixthDay = sixth.format("MM/DD/YY");
     currentDate = today;
+    dayOneEl.textContent = secondDay;
+    dayTwoEl.textContent = thirdDay;
+    dayThreeEl.textContent = fourthDay;
+    dayFourEl.textContent = fifthDay;
+    dayFiveEl.textContent = sixthDay;
+
 }
 todaysDate();
 
@@ -73,18 +128,33 @@ function getLocation() {
 getLocation();
 
 function weatherDisplay(lat, lon) {
-    var queryURL = 'http://api.openweathermap.org/data/2.5/find?lat='+ lat + '&lon=' +  lon + '&APPID=79bb7dc0e8f07f6ebe01166410e6e392'
+    var queryURL = 'http://api.openweathermap.org/data/2.5/find?lat='+ lat + '&lon=' +  lon + '&appid=79bb7dc0e8f07f6ebe01166410e6e392'
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response){
         var City = response.list[0].name;
         var Kelvin = (response.list[0].main.temp);
-        var Farenheit = Math.round(((Kelvin - 273.15) * 9/5 + 32)*10)/10;
+        var Farenheit = Math.round(((Kelvin - 273.15) * 9/5 + 32)*100)/100;
         var Humidity = (response.list[0].main.humidity);
         var Wind = (response.list[0].wind.speed);
         currentTemp.textContent = "Temperature: " + Farenheit + "°";
         currentCity.textContent = City + ", WA " + "(" + currentDate + ")";
         currentHumidity.textContent = "Humidity: " + Humidity + "%";
         currentWind.textContent = "Wind Speed: " + Wind + " MPH";
-    })}
+    })
+    // var queryURL2 = 'http://api.openweathermap.org/data/2.5/forecast?q={city name}&appid=79bb7dc0e8f07f6ebe01166410e6e392'
+    var queryURL2 = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=79bb7dc0e8f07f6ebe01166410e6e392'
+    $.ajax({
+        url: queryURL2,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
+    })
+
+
+
+
+
+
+}
