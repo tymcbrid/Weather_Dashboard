@@ -19,7 +19,6 @@ var dayThreeEl = document.querySelector("#dayThree");
 var dayFourEl = document.querySelector("#dayFour");
 var dayFiveEl = document.querySelector("#dayFive");
 
-
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
     var city = $("#searchItem").val();
@@ -69,7 +68,32 @@ $(".cityCard").on("click", function(event){
         url: queryURL2,
         method: "GET"
     }).then(function(response){
+        var maxtemps = [];
+        var mintemps = [];
         console.log(response);
+        for(var j = 0; j < 5; j++){
+            var maxtemp = -10000;
+            var mintemp = 10000
+            for(var i = (0 + (j * 8)); i < (8 + (j * 8)); i++){
+                newmaxtemp = response.list[i].main.temp_max
+                newmintemp = response.list[i].main.temp_min
+                if(newmaxtemp > maxtemp){
+                    maxtemp = newmaxtemp;
+                }
+                if(newmintemp < mintemp){
+                    mintemp = newmintemp;
+                }
+                console.log("max temp day1= " + maxtemp);
+                console.log("min temp day1= " + mintemp);
+            }
+            var maxF = Math.round(((maxtemp - 273.15) * 9/5 + 32)*100)/100;
+            var minF = Math.round(((mintemp - 273.15) * 9/5 + 32)*100)/100;
+            maxtemps.push(maxF);
+            mintemps.push(minF);
+            console.log("max temp total= " + maxtemps);
+            console.log("min temp total= " + mintemps);
+        }
+
     })
 })
 
