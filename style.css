@@ -10,6 +10,13 @@
     height: 100px;
 }
 
+#searchBtn{
+    background-color: #2C8AE8;
+    color: white;
+    border-color: #2C8AE8;
+}
+
+
 .cityCard{
 height: 50px;
 }
