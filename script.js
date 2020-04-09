@@ -28,6 +28,11 @@ var dayTwominEl = document.querySelector("#day2min");
 var dayThreeminEl = document.querySelector("#day3min");
 var dayFourminEl = document.querySelector("#day4min");
 var dayFiveminEl = document.querySelector("#day5min");
+var dayOnehumidity = document.querySelector("#dayOnehumidity");
+var dayTwohumidity = document.querySelector("#dayTwohumidity");
+var dayThreehumidity = document.querySelector("#dayThreehumidity");
+var dayFourhumidity = document.querySelector("#dayFourhumidity");
+var dayFivehumidity = document.querySelector("#dayFivehumidity");
 
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
@@ -69,11 +74,14 @@ $("#searchBtn").on("click", function(event) {
     }).then(function(response){
         var maxtemps = [];
         var mintemps = [];
+        var humidities = [];
         console.log(response);
         for(var j = 0; j < 5; j++){
             var maxtemp = -10000;
-            var mintemp = 10000
+            var mintemp = 10000;
+            var avghumidity = 0;
             for(var i = (0 + (j * 8)); i < (8 + (j * 8)); i++){
+                avghumidity = avghumidity + response.list[i].main.humidity;
                 newmaxtemp = response.list[i].main.temp_max
                 newmintemp = response.list[i].main.temp_min
                 if(newmaxtemp > maxtemp){
@@ -89,6 +97,7 @@ $("#searchBtn").on("click", function(event) {
             var minF = Math.round(((mintemp - 273.15) * 9/5 + 32)*100)/100;
             maxtemps.push(maxF);
             mintemps.push(minF);
+            humidities.push(((avghumidity/8).toFixed(2)));
             console.log("max temp total= " + maxtemps);
             console.log("min temp total= " + mintemps);
         }
@@ -102,6 +111,11 @@ $("#searchBtn").on("click", function(event) {
         dayThreeminEl.textContent = "Min Temp: " + mintemps[2] + "°";
         dayFourminEl.textContent = "Min Temp: " + mintemps[3] + "°";
         dayFiveminEl.textContent = "Min Temp: " + mintemps[4] + "°";
+        dayOnehumidity.textContent="Humidity: " + humidities[0] + "%";
+        dayTwohumidity.textContent="Humidity: " + humidities[1] + "%";
+        dayThreehumidity.textContent="Humidity: " + humidities[2] + "%";
+        dayFourhumidity.textContent="Humidity: " + humidities[3] + "%";
+        dayFivehumidity.textContent="Humidity: " + humidities[4] + "%";
     })
 })
 
@@ -143,11 +157,14 @@ $(".cityCard").on("click", function(event){
     }).then(function(response){
         var maxtemps = [];
         var mintemps = [];
+        var humidities = [];
         console.log(response);
         for(var j = 0; j < 5; j++){
             var maxtemp = -10000;
-            var mintemp = 10000
+            var mintemp = 10000;
+            var avghumidity = 0;
             for(var i = (0 + (j * 8)); i < (8 + (j * 8)); i++){
+                avghumidity = avghumidity + response.list[i].main.humidity;
                 newmaxtemp = response.list[i].main.temp_max
                 newmintemp = response.list[i].main.temp_min
                 if(newmaxtemp > maxtemp){
@@ -158,14 +175,18 @@ $(".cityCard").on("click", function(event){
                 }
                 console.log("max temp day1= " + maxtemp);
                 console.log("min temp day1= " + mintemp);
+                console.log("humidity sum = " + avghumidity);
             }
             var maxF = Math.round(((maxtemp - 273.15) * 9/5 + 32)*100)/100;
             var minF = Math.round(((mintemp - 273.15) * 9/5 + 32)*100)/100;
             maxtemps.push(maxF);
             mintemps.push(minF);
+            humidities.push(((avghumidity/8).toFixed(2)));
+            console.log("Avg hum is " + (avghumidity/8));
             console.log("max temp total= " + maxtemps);
             console.log("min temp total= " + mintemps);
         }
+        console.log(humidities);
         dayOnemaxEl.textContent = "Max Temp: " + maxtemps[0] + "°";
         dayTwomaxEl.textContent = "Max Temp: " + maxtemps[1] + "°";
         dayThreemaxEl.textContent = "Max Temp: " + maxtemps[2] + "°";
@@ -176,6 +197,11 @@ $(".cityCard").on("click", function(event){
         dayThreeminEl.textContent = "Min Temp: " + mintemps[2] + "°";
         dayFourminEl.textContent = "Min Temp: " + mintemps[3] + "°";
         dayFiveminEl.textContent = "Min Temp: " + mintemps[4] + "°";
+        dayOnehumidity.textContent="Humidity: " + humidities[0] + "%";
+        dayTwohumidity.textContent="Humidity: " + humidities[1] + "%";
+        dayThreehumidity.textContent="Humidity: " + humidities[2] + "%";
+        dayFourhumidity.textContent="Humidity: " + humidities[3] + "%";
+        dayFivehumidity.textContent="Humidity: " + humidities[4] + "%";
     })
 })
 
@@ -270,11 +296,14 @@ function weatherDisplay(lat, lon) {
     }).then(function(response){
         var maxtemps = [];
         var mintemps = [];
+        var humidities = [];
         console.log(response);
         for(var j = 0; j < 5; j++){
             var maxtemp = -10000;
-            var mintemp = 10000
+            var mintemp = 10000;
+            var avghumidity = 0;
             for(var i = (0 + (j * 8)); i < (8 + (j * 8)); i++){
+                avghumidity = avghumidity + response.list[i].main.humidity;
                 newmaxtemp = response.list[i].main.temp_max
                 newmintemp = response.list[i].main.temp_min
                 if(newmaxtemp > maxtemp){
@@ -290,6 +319,7 @@ function weatherDisplay(lat, lon) {
             var minF = Math.round(((mintemp - 273.15) * 9/5 + 32)*100)/100;
             maxtemps.push(maxF);
             mintemps.push(minF);
+            humidities.push(((avghumidity/8).toFixed(2)));
             console.log("max temp total= " + maxtemps);
             console.log("min temp total= " + mintemps);
         }
@@ -303,6 +333,11 @@ function weatherDisplay(lat, lon) {
         dayThreeminEl.textContent = "Min Temp: " + mintemps[2] + "°";
         dayFourminEl.textContent = "Min Temp: " + mintemps[3] + "°";
         dayFiveminEl.textContent = "Min Temp: " + mintemps[4] + "°";
+        dayOnehumidity.textContent="Humidity: " + humidities[0] + "%";
+        dayTwohumidity.textContent="Humidity: " + humidities[1] + "%";
+        dayThreehumidity.textContent="Humidity: " + humidities[2] + "%";
+        dayFourhumidity.textContent="Humidity: " + humidities[3] + "%";
+        dayFivehumidity.textContent="Humidity: " + humidities[4] + "%";
     })
 
 
