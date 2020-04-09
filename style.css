@@ -16,6 +16,30 @@
     border-color: #2C8AE8;
 }
 
+#currentTemp{
+    position: relative;
+    bottom: 15px;
+}
+#currentHumidity{
+    position: relative; 
+    bottom: 15px; 
+}
+#currentWind{
+    position: relative;  
+    bottom: 15px;
+}
+#currentUV{
+    position: relative;
+    bottom: 15px;
+}
+.icons{
+    position: relative;
+    height: 50px;
+    width: 50px;
+    bottom: 25px;
+    left: -10px;
+
+}
 
 .cityCard{
 height: 50px;
@@ -59,7 +83,7 @@ height: 300px;
 }
 .fivedaymax{
     position: relative;
-    top: 20px;
+    top: -20px;
     right: 10px;
     text-align: left;
     color: white;
@@ -67,7 +91,7 @@ height: 300px;
 }
 .fivedaymin{
     position: relative;
-    top: 5px;
+    top: -35px;
     right: 10px;
     text-align: left;
     color: white;
@@ -75,7 +99,7 @@ height: 300px;
 }
 .fivedayhumidity{
     position: relative;
-    top: -10px;
+    top: -50px;
     right: 10px;
     text-align: left;
     color: white;

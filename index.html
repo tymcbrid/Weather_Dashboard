@@ -20,179 +20,183 @@
             <h1 class="display-4">Weather Dashboard</h1>
         </div>
         <div class="row">
-                <div class="col-md-4" id ="leftSection">
-                    <div class="card" id ="citySearch">
-                        <div class="card-body">
-                            <h4 class="card-title">Search for a City:</h4>
-                                <form class="form-inline my-2 my-lg-0">
-                                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="searchItem">
-                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"  id="searchBtn"> <i class="fas fa-search"></i></button>
-                                </form>
-                            <br />
-                            <div class="card cityCard">
-                                <div class="card-body">
-                                    <p class="card-text cityName" id ="cityList1">
-                                        Seattle
-                                    </p>
-                                </div>
+            <div class="col-md-4" id ="leftSection">
+                <div class="card" id ="citySearch">
+                    <div class="card-body">
+                        <h4 class="card-title">Search for a City:</h4>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="searchItem">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"  id="searchBtn"> <i class="fas fa-search"></i></button>
+                            </form>
+                        <br />
+                        <div class="card cityCard">
+                            <div class="card-body">
+                                <p class="card-text cityName" id ="cityList1">
+                                    Seattle
+                                </p>
                             </div>
-                            <div class="card cityCard">
-                                <div class="card-body">
-                                    <p class="card-text cityName" id ="cityList2">
-                                        San Francisco
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card cityCard">
-                                <div class="card-body">
-                                    <p class="card-text cityName" id ="cityList3">
-                                        New York
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card cityCard">
-                                <div class="card-body">
-                                    <p class="card-text cityName" id ="cityList4">
-                                        Los Angeles
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card cityCard">
-                                <div class="card-body">
-                                    <p class="card-text cityName" id ="cityList5">
-                                        Chicago
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card cityCard">
-                                <div class="card-body">
-                                    <p class="card-text cityName" id ="cityList6">
-                                        Denver
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card cityCard">
-                                <div class="card-body">
-                                    <p class="card-text cityName" id ="cityList7">
-                                        London
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card cityCard">
-                                <div class="card-body">
-                                    <p class="card-text cityName" id ="cityList8">
-                                        Paris
-                                    </p>
-                                </div>
-                            </div>  
                         </div>
+                        <div class="card cityCard">
+                            <div class="card-body">
+                                <p class="card-text cityName" id ="cityList2">
+                                    San Francisco
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card cityCard">
+                            <div class="card-body">
+                                <p class="card-text cityName" id ="cityList3">
+                                    New York
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card cityCard">
+                            <div class="card-body">
+                                <p class="card-text cityName" id ="cityList4">
+                                    Los Angeles
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card cityCard">
+                            <div class="card-body">
+                                <p class="card-text cityName" id ="cityList5">
+                                    Chicago
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card cityCard">
+                            <div class="card-body">
+                                <p class="card-text cityName" id ="cityList6">
+                                    Denver
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card cityCard">
+                            <div class="card-body">
+                                <p class="card-text cityName" id ="cityList7">
+                                    London
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card cityCard">
+                            <div class="card-body">
+                                <p class="card-text cityName" id ="cityList8">
+                                    Paris
+                                </p>
+                            </div>
+                        </div>  
                     </div>
                 </div>
-                <div class="col-md-8" id ="forecastInfo">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card" id ="currentForecast">
-                                <div class="card-body">
-                                    <h2 class="card-title" id="currentCity">(Current Location)</h2>
-                                    <br />
-                                    <p class="card-text" id="currentTemp">
-                                        Temperature
-                                    </p>
-                                    <p class="card-text" id="currentHumidity">
-                                        Humidity
-                                    </p>
-                                    <p class="card-text" id="currentWind">
-                                        Wind Speed
-                                    </p>
-                                    <p class="card-text" id="currentUV">
-                                        UV Index
-                                    </p>
-                                </div>
+            </div>
+            <div class="col-md-8" id ="forecastInfo">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card" id ="currentForecast">
+                            <div class="card-body">
+                                <h2 class="card-title" id="currentCity">(Current Location)</h2>
+                                <br />
+                                <p class="card-text" id="currentTemp">
+                                    Temperature
+                                </p>
+                                <p class="card-text" id="currentHumidity">
+                                    Humidity
+                                </p>
+                                <p class="card-text" id="currentWind">
+                                    Wind Speed
+                                </p>
+                                <p class="card-text" id="currentUV">
+                                    UV Index
+                                </p>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="card" id ="fiveDay">
-                                <div class="card-body">
-                                    <h4 class="card-title">5-Day Forecast</h4>
-                                    <div class="row">
-                                        <div class="col-md-2 weekCards">
-                                            <div class="card day">
-                                                <h5 class="card-title fivedaytext" id ="dayOne"></h5>
-                                                <div class="card-body">
-                                                    <p class="card-text fivedaymax" id="day1max">
-                                                        Max Temp:
-                                                    </p>
-                                                    <p class="card-text fivedaymin" id="day1min">
-                                                        Min Temp:
-                                                    </p>
-                                                    <p class="card-text fivedayhumidity" id="dayOnehumidity">
-                                                        Humidity:
-                                                    </p>
-                                                </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card" id ="fiveDay">
+                            <div class="card-body">
+                                <h4 class="card-title">5-Day Forecast</h4>
+                                <div class="row">
+                                    <div class="col-md-2 weekCards">
+                                        <div class="card day">
+                                            <h5 class="card-title fivedaytext" id ="dayOne"></h5>
+                                            <div class="card-body">
+                                                <div id="icon1"></div>
+                                                <p class="card-text fivedaymax" id="day1max">
+                                                    Max Temp:
+                                                </p>
+                                                <p class="card-text fivedaymin" id="day1min">
+                                                    Min Temp:
+                                                </p>
+                                                <p class="card-text fivedayhumidity" id="dayOnehumidity">
+                                                    Humidity:
+                                                </p>
                                             </div>
                                         </div>
-                                        <div class="col-md-2 weekCards">
-                                            <div class="card day">
-                                                <h5 class="card-title fivedaytext" id ="dayTwo"></h5>
-                                                <div class="card-body">
-                                                    <p class="card-text fivedaymax" id="day2max">
-                                                        Max Temp:
-                                                    </p>
-                                                    <p class="card-text fivedaymin" id="day2min">
-                                                        Min Temp:
-                                                    </p>
-                                                    <p class="card-text fivedayhumidity" id="dayTwohumidity">
-                                                        Humidity:
-                                                    </p>
-                                                </div>
+                                    </div>
+                                    <div class="col-md-2 weekCards">
+                                        <div class="card day">
+                                            <h5 class="card-title fivedaytext" id ="dayTwo"></h5>
+                                            <div class="card-body">
+                                                <div id="icon2"></div>
+                                                <p class="card-text fivedaymax" id="day2max">
+                                                    Max Temp:
+                                                </p>
+                                                <p class="card-text fivedaymin" id="day2min">
+                                                    Min Temp:
+                                                </p>
+                                                <p class="card-text fivedayhumidity" id="dayTwohumidity">
+                                                    Humidity:
+                                                </p>
                                             </div>
                                         </div>
-                                        <div class="col-md-2 weekCards">                                      
-                                            <div class="card day">
-                                                <h5 class="card-title fivedaytext" id ="dayThree"></h5>
-                                                <div class="card-body">
-                                                    <p class="card-text fivedaymax" id="day3max">
-                                                        Max Temp:
-                                                    </p>
-                                                    <p class="card-text fivedaymin" id="day3min">
-                                                        Min Temp:
-                                                    </p>
-                                                    <p class="card-text fivedayhumidity" id="dayThreehumidity">
-                                                        Humidity:
-                                                    </p>
-                                                </div>
+                                    </div>
+                                    <div class="col-md-2 weekCards">                                      
+                                        <div class="card day">
+                                            <h5 class="card-title fivedaytext" id ="dayThree"></h5>
+                                            <div class="card-body">
+                                                <div id="icon3"></div>
+                                                <p class="card-text fivedaymax" id="day3max">
+                                                    Max Temp:
+                                                </p>
+                                                <p class="card-text fivedaymin" id="day3min">
+                                                    Min Temp:
+                                                </p>
+                                                <p class="card-text fivedayhumidity" id="dayThreehumidity">
+                                                    Humidity:
+                                                </p>
                                             </div>
                                         </div>
-                                        <div class="col-md-2 weekCards">
-                                            <div class="card day">
-                                                <h5 class="card-title fivedaytext" id ="dayFour"></h5>
-                                                <div class="card-body">
-                                                    <p class="card-text fivedaymax" id="day4max">
-                                                        Max Temp:
-                                                    </p>
-                                                    <p class="card-text fivedaymin" id="day4min">
-                                                        Min Temp:
-                                                    </p>
-                                                    <p class="card-text fivedayhumidity" id="dayFourhumidity">
-                                                        Humidity:
-                                                    </p>
-                                                </div>
+                                    </div>
+                                    <div class="col-md-2 weekCards">
+                                        <div class="card day">
+                                            <h5 class="card-title fivedaytext" id ="dayFour"></h5>
+                                            <div class="card-body">
+                                                <div id="icon4"></div>
+                                                <p class="card-text fivedaymax" id="day4max">
+                                                    Max Temp:
+                                                </p>
+                                                <p class="card-text fivedaymin" id="day4min">
+                                                    Min Temp:
+                                                </p>
+                                                <p class="card-text fivedayhumidity" id="dayFourhumidity">
+                                                    Humidity:
+                                                </p>
                                             </div>
                                         </div>
-                                        <div class="col-md-2 weekCards">
-                                            <div class="card day">
-                                                <h5 class="card-title fivedaytext" id ="dayFive"></h5>
-                                                <div class="card-body">
-                                                    <p class="card-text fivedaymax" id="day5max">
-                                                        Max Temp:
-                                                    </p>
-                                                    <p class="card-text fivedaymin" id="day5min">
-                                                        Min Temp:
-                                                    </p>
-                                                    <p class="card-text fivedayhumidity" id="dayFivehumidity">
-                                                        Humidity:
-                                                    </p>
-                                                </div>
+                                    </div>
+                                    <div class="col-md-2 weekCards">
+                                        <div class="card day">
+                                            <h5 class="card-title fivedaytext" id ="dayFive"></h5>
+                                            <div class="card-body">
+                                                <div id="icon5"></div>
+                                                <p class="card-text fivedaymax" id="day5max">
+                                                    Max Temp:
+                                                </p>
+                                                <p class="card-text fivedaymin" id="day5min">
+                                                    Min Temp:
+                                                </p>
+                                                <p class="card-text fivedayhumidity" id="dayFivehumidity">
+                                                    Humidity:
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -201,6 +205,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 
