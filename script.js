@@ -59,9 +59,9 @@ $("#searchBtn").on("click", function(event) {
     // var queryURL2 = 'http://api.openweathermap.org/data/2.5/forecast?q='+ city + '&appid=79bb7dc0e8f07f6ebe01166410e6e392'
 
     if (location.protocol === 'http:') {
-        queryURL2 = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383";
+        queryURL2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383";
      } else {
-        queryURL2 = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383";
+        queryURL2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383";
      }
         $.ajax({
         url: queryURL2,
@@ -133,9 +133,9 @@ $(".cityCard").on("click", function(event){
     })
     // var queryURL2 = 'http://api.openweathermap.org/data/2.5/forecast?q='+ city + '&appid=79bb7dc0e8f07f6ebe01166410e6e392'
     if (location.protocol === 'http:') {
-        queryURL2 = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383";
+        queryURL2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383";
      } else {
-        queryURL2 = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383";
+        queryURL2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383";
      }
     $.ajax({
         url: queryURL2,
@@ -236,13 +236,13 @@ getLocation();
 function weatherDisplay(lat, lon) {
 
     if (location.protocol === 'http:') {
-        queryURL = "http://api.openweathermap.org/data/2.5/find?lat="+ lat + "&lon=" +  lon + "&appid=79bb7dc0e8f07f6ebe01166410e6e392";
+        queryURL = "http://api.openweathermap.org/data/2.5/find?lat="+ lat + "&lon=" +  lon + "&appid=a89a05b4a0df6c1694d5f08466c85383";
      } else {
-        queryURL = "https://api.openweathermap.org/data/2.5/find?lat="+ lat + "&lon=" +  lon + "&appid=79bb7dc0e8f07f6ebe01166410e6e392";
+        queryURL = "https://api.openweathermap.org/data/2.5/find?lat="+ lat + "&lon=" +  lon + "&appid=a89a05b4a0df6c1694d5f08466c85383";
      }
 
 
-    // var queryURL = 'http://api.openweathermap.org/data/2.5/find?lat='+ lat + '&lon=' +  lon + '&appid=79bb7dc0e8f07f6ebe01166410e6e392'
+    // var queryURL = 'http://api.openweathermap.org/data/2.5/find?lat='+ lat + '&lon=' +  lon + '&appid=a89a05b4a0df6c1694d5f08466c85383'
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -259,11 +259,11 @@ function weatherDisplay(lat, lon) {
     })
 
     if (location.protocol === 'http:') {
-        queryURL2 = "http://api.openweathermap.org/data/2.5/find?lat="+ lat + "&lon=" +  lon + "&appid=79bb7dc0e8f07f6ebe01166410e6e392";
+        queryURL2 = "http://api.openweathermap.org/data/2.5/forecast?lat="+ lat + "&lon=" +  lon + "&appid=a89a05b4a0df6c1694d5f08466c85383";
      } else {
-        queryURL2 = "https://api.openweathermap.org/data/2.5/find?lat="+ lat + "&lon=" +  lon + "&appid=79bb7dc0e8f07f6ebe01166410e6e392";
+        queryURL2 = "https://api.openweathermap.org/data/2.5/forecast?lat="+ lat + "&lon=" +  lon + "&appid=a89a05b4a0df6c1694d5f08466c85383";
      }
-    // var queryURL2 = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=79bb7dc0e8f07f6ebe01166410e6e392'
+    // var queryURL2 = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=a89a05b4a0df6c1694d5f08466c85383'
     $.ajax({
         url: queryURL2,
         method: "GET"
