@@ -18,6 +18,16 @@ var dayTwoEl = document.querySelector("#dayTwo");
 var dayThreeEl = document.querySelector("#dayThree");
 var dayFourEl = document.querySelector("#dayFour");
 var dayFiveEl = document.querySelector("#dayFive");
+var dayOnemaxEl = document.querySelector("#day1max");
+var dayTwomaxEl = document.querySelector("#day2max");
+var dayThreemaxEl = document.querySelector("#day3max");
+var dayFourmaxEl = document.querySelector("#day4max");
+var dayFivemaxEl = document.querySelector("#day5max");
+var dayOneminEl = document.querySelector("#day1min");
+var dayTwominEl = document.querySelector("#day2min");
+var dayThreeminEl = document.querySelector("#day3min");
+var dayFourminEl = document.querySelector("#day4min");
+var dayFiveminEl = document.querySelector("#day5min");
 
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
@@ -39,6 +49,47 @@ $("#searchBtn").on("click", function(event) {
         currentHumidity.textContent = "Humidity: " + Humidity + "%";
         currentWind.textContent = "Wind Speed: " + Wind + " MPH";
         updateList(City);
+    })
+    var queryURL2 = 'http://api.openweathermap.org/data/2.5/forecast?q='+ city + '&appid=79bb7dc0e8f07f6ebe01166410e6e392'
+    $.ajax({
+        url: queryURL2,
+        method: "GET"
+    }).then(function(response){
+        var maxtemps = [];
+        var mintemps = [];
+        console.log(response);
+        for(var j = 0; j < 5; j++){
+            var maxtemp = -10000;
+            var mintemp = 10000
+            for(var i = (0 + (j * 8)); i < (8 + (j * 8)); i++){
+                newmaxtemp = response.list[i].main.temp_max
+                newmintemp = response.list[i].main.temp_min
+                if(newmaxtemp > maxtemp){
+                    maxtemp = newmaxtemp;
+                }
+                if(newmintemp < mintemp){
+                    mintemp = newmintemp;
+                }
+                console.log("max temp day1= " + maxtemp);
+                console.log("min temp day1= " + mintemp);
+            }
+            var maxF = Math.round(((maxtemp - 273.15) * 9/5 + 32)*100)/100;
+            var minF = Math.round(((mintemp - 273.15) * 9/5 + 32)*100)/100;
+            maxtemps.push(maxF);
+            mintemps.push(minF);
+            console.log("max temp total= " + maxtemps);
+            console.log("min temp total= " + mintemps);
+        }
+        dayOnemaxEl.textContent = "Max Temp: " + maxtemps[0] + "°";
+        dayTwomaxEl.textContent = "Max Temp: " + maxtemps[1] + "°";
+        dayThreemaxEl.textContent = "Max Temp: " + maxtemps[2] + "°";
+        dayFourmaxEl.textContent = "Max Temp: " + maxtemps[3] + "°";
+        dayFivemaxEl.textContent = "Max Temp: " + maxtemps[4] + "°";
+        dayOneminEl.textContent = "Min Temp: " + mintemps[0] + "°";
+        dayTwominEl.textContent = "Min Temp: " + mintemps[1] + "°";
+        dayThreeminEl.textContent = "Min Temp: " + mintemps[2] + "°";
+        dayFourminEl.textContent = "Min Temp: " + mintemps[3] + "°";
+        dayFiveminEl.textContent = "Min Temp: " + mintemps[4] + "°";
     })
 })
 
@@ -93,7 +144,16 @@ $(".cityCard").on("click", function(event){
             console.log("max temp total= " + maxtemps);
             console.log("min temp total= " + mintemps);
         }
-
+        dayOnemaxEl.textContent = "Max Temp: " + maxtemps[0] + "°";
+        dayTwomaxEl.textContent = "Max Temp: " + maxtemps[1] + "°";
+        dayThreemaxEl.textContent = "Max Temp: " + maxtemps[2] + "°";
+        dayFourmaxEl.textContent = "Max Temp: " + maxtemps[3] + "°";
+        dayFivemaxEl.textContent = "Max Temp: " + maxtemps[4] + "°";
+        dayOneminEl.textContent = "Min Temp: " + mintemps[0] + "°";
+        dayTwominEl.textContent = "Min Temp: " + mintemps[1] + "°";
+        dayThreeminEl.textContent = "Min Temp: " + mintemps[2] + "°";
+        dayFourminEl.textContent = "Min Temp: " + mintemps[3] + "°";
+        dayFiveminEl.textContent = "Min Temp: " + mintemps[4] + "°";
     })
 })
 
@@ -167,13 +227,46 @@ function weatherDisplay(lat, lon) {
         currentHumidity.textContent = "Humidity: " + Humidity + "%";
         currentWind.textContent = "Wind Speed: " + Wind + " MPH";
     })
-    // var queryURL2 = 'http://api.openweathermap.org/data/2.5/forecast?q={city name}&appid=79bb7dc0e8f07f6ebe01166410e6e392'
     var queryURL2 = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=79bb7dc0e8f07f6ebe01166410e6e392'
     $.ajax({
         url: queryURL2,
         method: "GET"
     }).then(function(response){
+        var maxtemps = [];
+        var mintemps = [];
         console.log(response);
+        for(var j = 0; j < 5; j++){
+            var maxtemp = -10000;
+            var mintemp = 10000
+            for(var i = (0 + (j * 8)); i < (8 + (j * 8)); i++){
+                newmaxtemp = response.list[i].main.temp_max
+                newmintemp = response.list[i].main.temp_min
+                if(newmaxtemp > maxtemp){
+                    maxtemp = newmaxtemp;
+                }
+                if(newmintemp < mintemp){
+                    mintemp = newmintemp;
+                }
+                console.log("max temp day1= " + maxtemp);
+                console.log("min temp day1= " + mintemp);
+            }
+            var maxF = Math.round(((maxtemp - 273.15) * 9/5 + 32)*100)/100;
+            var minF = Math.round(((mintemp - 273.15) * 9/5 + 32)*100)/100;
+            maxtemps.push(maxF);
+            mintemps.push(minF);
+            console.log("max temp total= " + maxtemps);
+            console.log("min temp total= " + mintemps);
+        }
+        dayOnemaxEl.textContent = "Max Temp: " + maxtemps[0] + "°";
+        dayTwomaxEl.textContent = "Max Temp: " + maxtemps[1] + "°";
+        dayThreemaxEl.textContent = "Max Temp: " + maxtemps[2] + "°";
+        dayFourmaxEl.textContent = "Max Temp: " + maxtemps[3] + "°";
+        dayFivemaxEl.textContent = "Max Temp: " + maxtemps[4] + "°";
+        dayOneminEl.textContent = "Min Temp: " + mintemps[0] + "°";
+        dayTwominEl.textContent = "Min Temp: " + mintemps[1] + "°";
+        dayThreeminEl.textContent = "Min Temp: " + mintemps[2] + "°";
+        dayFourminEl.textContent = "Min Temp: " + mintemps[3] + "°";
+        dayFiveminEl.textContent = "Min Temp: " + mintemps[4] + "°";
     })
 
 

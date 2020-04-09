@@ -63,7 +63,7 @@ height: 300px;
     right: 10px;
     text-align: left;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
 }
 .fivedaymin{
     position: relative;
@@ -71,7 +71,7 @@ height: 300px;
     right: 10px;
     text-align: left;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
 }
 .fivedayhumidity{
     position: relative;
@@ -79,7 +79,7 @@ height: 300px;
     right: 10px;
     text-align: left;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 @media screen and (max-width: 768px) {
