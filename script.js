@@ -60,8 +60,9 @@ $("#searchBtn").on("click", function(event) {
         var Farenheit = Math.round(((Kelvin - 273.15) * 9/5 + 32)*100)/100;
         var Humidity = (response.main.humidity);
         var Wind = (response.wind.speed);
+        var weatherIcon = 'http://openweathermap.org/img/wn/' + response.weather[0].icon  + '@2x.png'
         currentTemp.textContent = "Temperature: " + Farenheit + "°";
-        currentCity.textContent = City + " " + "(" + currentDate + ")";
+        currentCity.innerHTML = City + " " + "(" + currentDate + ")" + "<img src='" + weatherIcon + "'>";
         currentHumidity.textContent = "Humidity: " + Humidity + "%";
         currentWind.textContent = "Wind Speed: " + Wind + " MPH";
         updateList(City);
@@ -80,11 +81,18 @@ $("#searchBtn").on("click", function(event) {
         var maxtemps = [];
         var mintemps = [];
         var humidities = [];
+        var icons = [];
         console.log(response);
         for(var j = 0; j < 5; j++){
             var maxtemp = -10000;
             var mintemp = 10000;
             var avghumidity = 0;
+            for(var i = (3 + (j * 8)); i < (8 + (j * 8)); i++){
+                var URL = response.list[i].weather[0].icon 
+                var iconURL = 'http://openweathermap.org/img/wn/' + URL  + '@2x.png'
+            }
+            var icon = "<img src='" + iconURL + "'" + "class='icons'>";
+            icons.push(icon);
             for(var i = (0 + (j * 8)); i < (8 + (j * 8)); i++){
                 avghumidity = avghumidity + response.list[i].main.humidity;
                 newmaxtemp = response.list[i].main.temp_max
@@ -121,6 +129,11 @@ $("#searchBtn").on("click", function(event) {
         dayThreehumidity.textContent="Humidity: " + humidities[2] + "%";
         dayFourhumidity.textContent="Humidity: " + humidities[3] + "%";
         dayFivehumidity.textContent="Humidity: " + humidities[4] + "%";
+        icon1.innerHTML = icons[0];
+        icon2.innerHTML = icons[1];
+        icon3.innerHTML = icons[2];
+        icon4.innerHTML = icons[3];
+        icon5.innerHTML = icons[4];
     })
 })
 
@@ -296,8 +309,10 @@ function weatherDisplay(lat, lon) {
         var Farenheit = Math.round(((Kelvin - 273.15) * 9/5 + 32)*100)/100;
         var Humidity = (response.list[0].main.humidity);
         var Wind = (response.list[0].wind.speed);
+        console.log(response)
+        var weatherIcon = 'http://openweathermap.org/img/wn/' + response.list[0].weather[0].icon  + '@2x.png'
         currentTemp.textContent = "Temperature: " + Farenheit + "°";
-        currentCity.textContent = City + ", WA " + "(" + currentDate + ")";
+        currentCity.innerHTML = City + ", WA " + "(" + currentDate + ")" + "<img src='" + weatherIcon + "'>";
         currentHumidity.textContent = "Humidity: " + Humidity + "%";
         currentWind.textContent = "Wind Speed: " + Wind + " MPH";
     })
@@ -315,11 +330,18 @@ function weatherDisplay(lat, lon) {
         var maxtemps = [];
         var mintemps = [];
         var humidities = [];
+        var icons = [];
         console.log(response);
         for(var j = 0; j < 5; j++){
             var maxtemp = -10000;
             var mintemp = 10000;
             var avghumidity = 0;
+            for(var i = (3 + (j * 8)); i < (8 + (j * 8)); i++){
+                var URL = response.list[i].weather[0].icon 
+                var iconURL = 'http://openweathermap.org/img/wn/' + URL  + '@2x.png'
+            }
+            var icon = "<img src='" + iconURL + "'" + "class='icons'>";
+            icons.push(icon);
             for(var i = (0 + (j * 8)); i < (8 + (j * 8)); i++){
                 avghumidity = avghumidity + response.list[i].main.humidity;
                 newmaxtemp = response.list[i].main.temp_max
@@ -356,6 +378,11 @@ function weatherDisplay(lat, lon) {
         dayThreehumidity.textContent="Humidity: " + humidities[2] + "%";
         dayFourhumidity.textContent="Humidity: " + humidities[3] + "%";
         dayFivehumidity.textContent="Humidity: " + humidities[4] + "%";
+        icon1.innerHTML = icons[0];
+        icon2.innerHTML = icons[1];
+        icon3.innerHTML = icons[2];
+        icon4.innerHTML = icons[3];
+        icon5.innerHTML = icons[4];
     })
 
 
