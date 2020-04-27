@@ -48,7 +48,6 @@ $("#searchBtn").on("click", function(event) {
         queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383";
      }
 
-    // var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383"
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -67,7 +66,6 @@ $("#searchBtn").on("click", function(event) {
         currentWind.textContent = "Wind Speed: " + Wind + " MPH";
         updateList(City);
     })
-    // var queryURL2 = 'http://api.openweathermap.org/data/2.5/forecast?q='+ city + '&appid=79bb7dc0e8f07f6ebe01166410e6e392'
 
     if (location.protocol === 'http:') {
         queryURL2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383";
@@ -135,6 +133,18 @@ $("#searchBtn").on("click", function(event) {
         icon4.innerHTML = icons[3];
         icon5.innerHTML = icons[4];
     })
+     
+    if (location.protocol === 'http:') {
+        queryURL3 = "https://api.openweathermap.org/data/2.5/uvi?&appid=a89a05b4a0df6c1694d5f08466c85383&lat="+ lat + "&lon=" +  lon;
+     } else {
+        queryURL3 = "https://api.openweathermap.org/data/2.5/uvi?&appid=a89a05b4a0df6c1694d5f08466c85383&lat="+ lat + "&lon=" +  lon;
+     }
+    $.ajax({
+        url: queryURL3,
+        method: "GET"
+    }).then(function(response){
+        currentUV.textContent = "UV Index: " + response.value;
+    })
 })
 
 $(".cityCard").on("click", function(event){
@@ -146,7 +156,6 @@ $(".cityCard").on("click", function(event){
      } else {
         queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383";
      }
-    // var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383"
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -164,7 +173,6 @@ $(".cityCard").on("click", function(event){
         currentHumidity.textContent = "Humidity: " + Humidity + "%";
         currentWind.textContent = "Wind Speed: " + Wind + " MPH";
     })
-    // var queryURL2 = 'http://api.openweathermap.org/data/2.5/forecast?q='+ city + '&appid=79bb7dc0e8f07f6ebe01166410e6e392'
     if (location.protocol === 'http:') {
         queryURL2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=a89a05b4a0df6c1694d5f08466c85383";
      } else {
@@ -233,6 +241,19 @@ $(".cityCard").on("click", function(event){
         icon3.innerHTML = icons[2];
         icon4.innerHTML = icons[3];
         icon5.innerHTML = icons[4];
+    })
+
+     
+    if (location.protocol === 'http:') {
+        queryURL3 = "https://api.openweathermap.org/data/2.5/uvi?&appid=a89a05b4a0df6c1694d5f08466c85383&lat="+ lat + "&lon=" +  lon;
+     } else {
+        queryURL3 = "https://api.openweathermap.org/data/2.5/uvi?&appid=a89a05b4a0df6c1694d5f08466c85383&lat="+ lat + "&lon=" +  lon;
+     }
+    $.ajax({
+        url: queryURL3,
+        method: "GET"
+    }).then(function(response){
+        currentUV.textContent = "UV Index: " + response.value;
     })
 })
 
@@ -385,9 +406,17 @@ function weatherDisplay(lat, lon) {
         icon5.innerHTML = icons[4];
     })
 
-
-
-
-
+   
+    if (location.protocol === 'http:') {
+        queryURL3 = "https://api.openweathermap.org/data/2.5/uvi?&appid=a89a05b4a0df6c1694d5f08466c85383&lat="+ lat + "&lon=" +  lon;
+     } else {
+        queryURL3 = "https://api.openweathermap.org/data/2.5/uvi?&appid=a89a05b4a0df6c1694d5f08466c85383&lat="+ lat + "&lon=" +  lon;
+     }
+    $.ajax({
+        url: queryURL3,
+        method: "GET"
+    }).then(function(response){
+        currentUV.textContent = "UV Index: " + response.value;
+    })
 
 }
